@@ -1,0 +1,223 @@
+/* General Body and Container Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif; /* Using Inter font, fallback to sans-serif */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* Nice gradient background */
+    color: #333;
+    padding: 20px; /* Add some padding for smaller screens */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Max width for the container */
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    color: #2193b0;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Form and Amount Input Styling */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+}
+
+.amount {
+    text-align: left;
+}
+
+.amount p {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.amount input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.9s ease;
+}
+
+.amount input:focus {
+    border-color: #2193b0;
+}
+
+/* Dropdown Section Styling */
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Space between items when wrapped */
+}
+
+.dropdown .from,
+.dropdown .To {
+    flex: 1; /* Allow items to grow */
+    min-width: 150px; /* Minimum width for each dropdown section */
+    text-align: left;
+}
+
+.dropdown p {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures image and select stay within rounded borders */
+    background-color: #f9f9f9;
+}
+
+.select-container img {
+    width: 40px; /* Flag image size */
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 50%; /* Make flags round */
+    margin-left: 10px;
+}
+
+.select-container select {
+    width: calc(100% - 60px); /* Adjust width for flag and margin */
+    padding: 10px 10px 10px 0; /* Padding for select */
+    border: none;
+    outline: none;
+    font-size: 1em;
+    background-color: transparent; /* Transparent background */
+    -webkit-appearance: none; /* Remove default dropdown arrow */
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Custom arrow for select dropdown (optional, but good for consistency) */
+.select-container {
+    position: relative;
+}
+.select-container::after {
+    content: '▼'; /* Unicode character for a down arrow */
+    font-size: 0.8em;
+    color: #777;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allows clicks to pass through to the select */
+}
+
+
+/* Exchange Icon Styling */
+.dropdown i {
+    font-size: 1.8em;
+    color: #2193b0;
+    margin: 0 15px; /* Space around the icon */
+    transform: rotate(90deg); /* Rotate for vertical layout on small screens */
+    transition: transform 0.3s ease;
+}
+
+/* Message Display Styling */
+.msg {
+    font-size: 1.2em;
+    margin-top: 30px;
+    color: #2193b0;
+    font-weight: 600;
+    background-color: #e0f7fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #b2ebf2;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #2193b0;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(33, 147, 176, 0.3);
+}
+
+button:hover {
+    background-color: #1a7a90;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(33, 147, 176, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .dropdown {
+        flex-direction: column; /* Stack dropdowns vertically */
+        align-items: center;
+    }
+
+    .dropdown .from,
+    .dropdown .To {
+        width: 100%; /* Full width for dropdown sections */
+        min-width: unset; /* Remove min-width constraint */
+    }
+
+    .dropdown i {
+        transform: rotate(90deg); /* Keep arrow pointing up/down */
+        margin: 15px 0; /* Adjust margin for vertical layout */
+    }
+
+    .container {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .amount p, .dropdown p, .msg {
+        font-size: 1em;
+    }
+
+    .amount input, button {
+        font-size: 1em;
+        padding: 12px;
+    }
+}
